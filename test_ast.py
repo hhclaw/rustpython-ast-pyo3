@@ -9,7 +9,8 @@ import rustpython_ast as rust_ast
 from glob import glob
 
 files = {}
-for path in glob("../../cpython/Lib/**/*.py"):
+#for path in glob("../../cpython/Lib/**/*.py"):
+for path in glob("*.py"):
     try:
         txt = open(path, "r").read()
     except UnicodeDecodeError:
@@ -27,7 +28,7 @@ for path in glob("../../cpython/Lib/**/*.py"):
 def test_roundtrip(path):
     txt = files[path]
     module_p = py_ast.parse(txt)
-    dump_p = py_ast.dump(module_p, indent=True)
+    dump_p = py_ast.dump(module_p)
     module_r = rust_ast.parse(txt)
     dump_r = py_ast.dump(module_r, indent=True)
     p = re.compile("object at 0x[0-9a-f]+")

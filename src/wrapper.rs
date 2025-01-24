@@ -1,4 +1,4 @@
-use crate::PyNode;
+use crate::py_ast::PyNode;
 use num_complex::Complex64;
 use pyo3::prelude::*;
 use pyo3::types::{PyBytes, PyList, PyTuple};
@@ -97,11 +97,15 @@ impl<R> ToPyWrapper for ast::Arguments<R>
 where
     Self: Clone,
     ast::PythonArguments<R>: ToPyWrapper,
+    R: std::clone::Clone
 {
     #[inline]
-    fn to_py_wrapper(&'static self, _py: Python) -> PyResult<Py<PyAny>> {
-        todo!()
+    fn to_py_wrapper(&'static self, py: Python) -> PyResult<Py<PyAny>> {
+        // todo!()
         // Ok(FunctionArguments(self).to_object(py))
+        let arguments = self.to_python_arguments();
+        let arguments = Box::leak(Box::new(arguments));
+        Ok(arguments.to_py_wrapper(py)?)
     }
 }
 

@@ -20,7 +20,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 rustpython-ast = { version = "0.3.1", default-features = false, features = ["num-bigint", "location"] }
-rustpython-parser = { workspace = "0.3.1", default-features = false, features = ["num-bigint"] }
+rustpython-parser = {version = "0.3.1", default-features = false, features = ["num-bigint"] }
 
 num-complex = "0.4.0"
 num-traits = "0.2"
