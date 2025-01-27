@@ -3,7 +3,7 @@ import difflib
 import pytest
 
 import ast as py_ast
-import rustpython_ast as rust_ast
+import rustpython_ast_pyo3_wrapper as rust_ast
 
 
 from glob import glob

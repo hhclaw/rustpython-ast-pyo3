@@ -60,7 +60,7 @@ pub fn parse_wrap<'py>(
 
 
 #[pymodule]
-fn rustpython_ast(py: Python, m: &PyModule) -> PyResult<()> {
+fn rustpython_ast_pyo3_wrapper(py: Python, m: &PyModule) -> PyResult<()> {
 
     #[cfg(not(feature = "wrapper"))] {
         py_ast::init(py)?;

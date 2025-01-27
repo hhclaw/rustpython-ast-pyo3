@@ -1,15 +1,18 @@
-import rustpython_ast as rust_ast
+import rustpython_ast_pyo3_wrapper as rust_ast
 import ast
 
 class_registry = {}
 
 src = """
+
+type Alias = list[T]
+
 class Point:
     def __init__(self, x, y):
         self.x = x
         self.y = y
 
-def match_point(p):
+def match_point(p) -> List[Point]:
     match p:
         case Point(x, y):
             return f"Point at ({x}, {y})"
@@ -110,4 +113,3 @@ def pretty_print_ast(node, level=0):
 
 res1 = transform_to_ast(res)
 pretty_print_ast(res1)
-

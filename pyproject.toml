@@ -3,12 +3,18 @@ requires = ["maturin>=0.15,<0.16"]
 build-backend = "maturin"
 
 [project]
-name = "rustpython_ast"
+name = "rustpython_ast_pyo3_wrapper"
 requires-python = ">=3.7"
+readme = "README.md"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
 ]
+
+[project.urls]
+Homepage = "https://github.com/hhclaw/"
+Repository = "https://github.com/hhclaw/rustpython-ast-pyo3"
+Issues = "https://github.com/hhclaw/rustpython-ast-pyo3/issues"
 
 [tool.maturin]
 # module-name = "_rustpython_ast"

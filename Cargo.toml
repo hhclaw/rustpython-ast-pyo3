@@ -1,11 +1,11 @@
 [package]
-name = "rustpython-ast-pyo3"
+name = "rustpython-ast-pyo3-wrapper"
 version = "0.0.1"
 authors = ["Jeong, Yunwon"]
 rust-version = "1.72.1"
 edition = "2021"
-description = "rustpython-ast PyO3 bindings"
-repository = "https://github.com/RustPython/rustpython-ast-pyo3"
+description = "rustpython-ast PyO3 bindings using wrapper feature"
+repository = "https://github.com/hhclaw/rustpython-ast-pyo3"
 license = "MIT"
 
 [features]
@@ -15,7 +15,7 @@ abi3 = ["pyo3/abi3-py37"]
 wrapper = []
 
 [lib]
-name = "rustpython_ast"
+name = "rustpython_ast_pyo3_wrapper"
 crate-type = ["cdylib"]
 
 [dependencies]
